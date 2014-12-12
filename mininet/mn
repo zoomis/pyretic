@@ -249,7 +249,7 @@ class MininetRunner( object ):
         ### PYRETIC CHANGE - SETUP HOSTS BASED ON TOPOLOGY NODE_INFO
         for host in mn.hosts:
             try:
-                gw = topo.node_info[host.name]['gw']
+                gw = topo.nodeInfo(host.name)['gw']
                 intf = host.defaultIntf()
                 host.cmd( 'route add default gw %s dev %s' % ( gw, intf ) )        
             except KeyError:
